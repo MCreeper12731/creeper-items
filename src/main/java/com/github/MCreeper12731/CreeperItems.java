@@ -1,5 +1,7 @@
 package com.github.MCreeper12731;
 
+import com.github.MCreeper12731.citem.CItemUsageListener;
+import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -9,13 +11,12 @@ import java.util.Map;
 
 public class CreeperItems {
 
-    private final JavaPlugin plugin;
     private final NamespacedKey key;
     private final Map<String, CItem> cItems = new HashMap<>();
 
     public CreeperItems(JavaPlugin plugin, String namespace) {
-        this.plugin = plugin;
         this.key = new NamespacedKey(plugin, namespace);
+        Bukkit.getPluginManager().registerEvents(new CItemUsageListener(this, key), plugin);
     }
 
     public CItem create(ItemStack itemStack, String id) {
