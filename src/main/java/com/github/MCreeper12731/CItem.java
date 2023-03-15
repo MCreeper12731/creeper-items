@@ -1,7 +1,7 @@
-package com.github.MCreeper12731.CreeperItems2;
+package com.github.MCreeper12731;
 
-import com.github.MCreeper12731.CreeperItems2.citem.CItemClickListener;
-import com.github.MCreeper12731.CreeperItems2.citem.CItemScrollListener;
+import com.github.MCreeper12731.citem.CItemClickListener;
+import com.github.MCreeper12731.citem.CItemScrollListener;
 import org.bukkit.NamespacedKey;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;

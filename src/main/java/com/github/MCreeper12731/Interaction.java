@@ -1,4 +1,4 @@
-package com.github.MCreeper12731.CreeperItems2;
+package com.github.MCreeper12731;
 
 public enum Interaction {
 

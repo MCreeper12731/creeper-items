@@ -1,4 +1,4 @@
-package com.github.MCreeper12731.CreeperItems2.item;
+package com.github.MCreeper12731.item;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

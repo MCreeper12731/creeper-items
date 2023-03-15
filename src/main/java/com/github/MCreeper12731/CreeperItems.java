@@ -1,4 +1,4 @@
-package com.github.MCreeper12731.CreeperItems2;
+package com.github.MCreeper12731;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;

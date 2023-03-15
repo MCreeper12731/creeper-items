@@ -1,4 +1,4 @@
-package com.github.MCreeper12731.CreeperItems2.item;
+package com.github.MCreeper12731.item;
 
 /**
  * Items such as glass panes can have variable color. This color is

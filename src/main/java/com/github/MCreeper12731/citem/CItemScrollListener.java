@@ -1,4 +1,4 @@
-package com.github.MCreeper12731.CreeperItems2.citem;
+package com.github.MCreeper12731.citem;
 
 import org.bukkit.event.player.PlayerItemHeldEvent;
 

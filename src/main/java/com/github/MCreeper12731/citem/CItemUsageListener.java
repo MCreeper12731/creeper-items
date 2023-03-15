@@ -1,8 +1,8 @@
-package com.github.MCreeper12731.CreeperItems2.citem;
+package com.github.MCreeper12731.citem;
 
-import com.github.MCreeper12731.CreeperItems2.CItem;
-import com.github.MCreeper12731.CreeperItems2.CreeperItems;
-import com.github.MCreeper12731.CreeperItems2.Interaction;
+import com.github.MCreeper12731.CItem;
+import com.github.MCreeper12731.CreeperItems;
+import com.github.MCreeper12731.Interaction;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
