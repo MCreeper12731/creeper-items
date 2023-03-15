@@ -32,6 +32,8 @@ public class CItemUsageListener implements Listener {
 
         CItem item = plugin.getItem(getId(heldItem));
 
+        if (item == null) return;
+
         Action action = event.getAction();
         Player player = event.getPlayer();
 
