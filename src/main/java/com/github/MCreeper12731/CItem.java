@@ -24,6 +24,7 @@ public class CItem {
         ItemMeta meta = item.getItemMeta();
         PersistentDataContainer container = meta.getPersistentDataContainer();
         container.set(key, PersistentDataType.STRING, id);
+        item.setItemMeta(meta);
 
         this.item = item;
     }
