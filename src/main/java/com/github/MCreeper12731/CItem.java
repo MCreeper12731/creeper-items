@@ -1,8 +1,10 @@
 package com.github.MCreeper12731;
 
 import com.github.MCreeper12731.citem.CItemClickListener;
+import com.github.MCreeper12731.citem.CItemMineListener;
 import com.github.MCreeper12731.citem.CItemScrollListener;
 import org.bukkit.NamespacedKey;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.inventory.ItemStack;
@@ -18,6 +20,7 @@ public class CItem {
     private final ItemStack item;
     private final Map<Interaction, CItemClickListener> clickListeners = new HashMap<>();
     private CItemScrollListener scrollListener;
+    private CItemMineListener mineListener;
 
     CItem(NamespacedKey key, ItemStack item, String id) {
 
@@ -39,6 +42,11 @@ public class CItem {
         return this;
     }
 
+    public CItem withBlockBreakListener(CItemMineListener listener) {
+        this.mineListener = listener;
+        return this;
+    }
+
     public CItemClickListener getClickListener(Interaction interaction) {
         return clickListeners.get(interaction);
     }
@@ -56,6 +64,11 @@ public class CItem {
     public void onScroll(PlayerItemHeldEvent event) {
         if (scrollListener == null) return;
         scrollListener.execute(event);
+    }
+
+    public void onBreak(BlockBreakEvent event) {
+        if (mineListener == null) return;
+        mineListener.execute(event);
     }
 
     public ItemStack getItem() {
