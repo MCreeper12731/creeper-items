@@ -93,8 +93,7 @@ public class CItemUsageListener implements Listener {
     @EventHandler
     public void onBreakBlockWithItem(BlockBreakEvent event) {
 
-        ItemStack heldItem = event.getPlayer().getItemInUse();
-        if (heldItem == null) return;
+        ItemStack heldItem = event.getPlayer().getInventory().getItemInMainHand();
         if (!isCustomItem(heldItem)) return;
 
         CItem item = plugin.getItem(getId(heldItem));
