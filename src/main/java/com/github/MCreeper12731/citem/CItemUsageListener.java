@@ -9,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.inventory.ItemStack;
@@ -102,6 +103,18 @@ public class CItemUsageListener implements Listener {
 
         item.onBreak(event);
 
+    }
+
+    @EventHandler
+    public void onEatItem(FoodLevelChangeEvent event) {
+        ItemStack heldItem = event.getEntity().getInventory().getItemInMainHand();
+        if (!isCustomItem(heldItem)) return;
+
+        CItem item = plugin.getItem(getId(heldItem));
+
+        if (item == null) return;
+
+        item.onEat(event);
     }
 
     private boolean isCustomItem(ItemStack item) {

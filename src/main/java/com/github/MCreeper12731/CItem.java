@@ -1,10 +1,12 @@
 package com.github.MCreeper12731;
 
 import com.github.MCreeper12731.citem.CItemClickListener;
+import com.github.MCreeper12731.citem.CItemEatListener;
 import com.github.MCreeper12731.citem.CItemMineListener;
 import com.github.MCreeper12731.citem.CItemScrollListener;
 import org.bukkit.NamespacedKey;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.inventory.ItemStack;
@@ -21,6 +23,7 @@ public class CItem {
     private final Map<Interaction, CItemClickListener> clickListeners = new HashMap<>();
     private CItemScrollListener scrollListener;
     private CItemMineListener mineListener;
+    private CItemEatListener eatListener;
 
     CItem(NamespacedKey key, ItemStack item, String id) {
 
@@ -47,6 +50,11 @@ public class CItem {
         return this;
     }
 
+    public CItem withEatListener(CItemEatListener listener) {
+        this.eatListener = listener;
+        return this;
+    }
+
     public CItemClickListener getClickListener(Interaction interaction) {
         return clickListeners.get(interaction);
     }
@@ -69,6 +77,11 @@ public class CItem {
     public void onBreak(BlockBreakEvent event) {
         if (mineListener == null) return;
         mineListener.execute(event);
+    }
+
+    public void onEat(FoodLevelChangeEvent event) {
+        if (eatListener == null) return;
+        eatListener.execute(event);
     }
 
     public ItemStack getItem() {
